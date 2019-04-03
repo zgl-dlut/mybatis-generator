@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgl.mybatis.generator.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.zgl.mybatis.generator.model.Product">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="prodect_name" jdbcType="VARCHAR" property="prodectName" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+</mapper>

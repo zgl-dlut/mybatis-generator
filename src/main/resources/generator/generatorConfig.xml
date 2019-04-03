@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- <properties resource="application.properties"/>-->
+	<context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+		                connectionURL="jdbc:mysql://localhost:3306/ssm?characterEncoding=utf-8"
+		                userId="root"
+		                password="root">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="com.zgl.mybatis.generator.model"
+		                    targetProject="./src/main/java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.zgl.mybatis.generator.mapper"
+		                 targetProject="./src/main/resources/mapper">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.zgl.mybatis.generator.mapper"
+		                     targetProject="./src/main/java"
+		                     type="XMLMAPPER">
+			<property name="enableSubPackages" value="true"/>
+		</javaClientGenerator>
+
+		<table tableName="tb_user" domainObjectName="User" enableCountByExample="false"
+		       enableDeleteByExample="true" enableSelectByExample="true"
+		       enableUpdateByExample="false" selectByExampleQueryId="false">
+		</table>
+
+		<table schema="ssm" tableName="tb_order" domainObjectName="Order">
+		</table>
+
+		<table schema="ssm" tableName="tb_product" domainObjectName="Product">
+		</table>
+
+		<table schema="ssm" tableName="tb_order_item" domainObjectName="OrderItem">
+		</table>
+
+	</context>
+</generatorConfiguration>
