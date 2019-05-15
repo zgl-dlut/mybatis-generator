@@ -28,11 +28,11 @@ public class MybatisGeneratorApplication implements ApplicationRunner {
 
 	private void generateArtifacts() throws Exception {
 		List<String> warnings = new ArrayList<>();
-		ConfigurationParser cp = new ConfigurationParser(warnings);
+		/*ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(
-				this.getClass().getResourceAsStream("/generator/autoGeneratorConfig.xml"));
+				this.getClass().getResourceAsStream("/generator/testGeneratorConfig.xml"));
 		DefaultShellCallback callback = new DefaultShellCallback(true);
 		MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-		myBatisGenerator.generate(null);
+		myBatisGenerator.generate(null);*/
 	}
 }

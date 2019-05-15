@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgl.mybatis.generator.mapper.StudentMapper">
+	<resultMap id="BaseResultMap" type="com.zgl.mybatis.generator.entity.Student">
+		<!--
+		  WARNING - @mbg.generated
+		-->
+		<id column="student_id" jdbcType="VARCHAR" property="studentId"/>
+		<result column="student_name" jdbcType="VARCHAR" property="studentName"/>
+		<result column="birth" jdbcType="VARCHAR" property="birth"/>
+		<result column="sex" jdbcType="VARCHAR" property="sex"/>
+	</resultMap>
+
+	<select id="queryRegisterSameCourse" parameterType="string" resultType="com.zgl.mybatis.generator.entity.Student">
+    SELECT Student.* FROM Student WHERE student_id IN (SELECT student_id FROM Score GROUP BY student_id HAVING count(course_id) = (
+	SELECT count(course_id) FROM Score WHERE student_id = #{studentId}))
+	AND student_id NOT IN (SELECT student_id FROM Score WHERE course_id NOT IN (
+	SELECT course_id FROM Score WHERE student_id = #{studentId})
+	GROUP BY student_id)
+	AND student_id NOT IN (#{studentId})
+  </select>
+</mapper>
